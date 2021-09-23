@@ -13,7 +13,7 @@ spec:
       recurse: true
   destination:
     server: https://kubernetes.default.svc
-    namespace: k8s-config
+    namespace: default
   syncPolicy:
     automated:
       prune: false
