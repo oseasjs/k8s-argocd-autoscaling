@@ -17,3 +17,10 @@ spec:
           image: oseasjs/simple-api-app:1.0
           ports:
             - containerPort: 3000
+          resources:
+            requests:
+              memory: "50Mi"
+              cpu: "500m"
+            limits:
+              memory: "500Mi"
+              cpu: "2000m"
