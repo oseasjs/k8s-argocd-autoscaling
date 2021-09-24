@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
         - name: simple-api-app
-          image: oseasjs/simple-api-app:1.2
+          image: oseasjs/simple-api-app:1.3
           ports:
             - containerPort: 3000
           resources:
