@@ -4,10 +4,10 @@ docker build . -t simple-api-app
 printf '\n### Docker build of simple-api-app ended...\n'
 
 printf '\n### Tagging docker image ...\n'
-docker tag simple-api-app oseasjs/simple-api-app:1.2
+docker tag simple-api-app oseasjs/simple-api-app:1.3
 
 printf '\n### Pushing image to remote docker repository...\n'
-docker push oseasjs/simple-api-app:1.2
+docker push oseasjs/simple-api-app:1.3
 
 # printf '\n### Starting docker-compose to install services...\n'
 # pwd
