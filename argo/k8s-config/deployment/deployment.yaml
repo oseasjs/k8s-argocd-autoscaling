@@ -19,13 +19,14 @@ spec:
     spec:
       containers:
         - name: simple-api-app
+          imagePullPolicy: Always
           image: oseasjs/simple-api-app:1.3
           ports:
             - containerPort: 3000
           resources:
             requests:
-              memory: "50Mi"
-              cpu: "250m"
+              memory: 128Mi
+              cpu: 200m
             limits:
-              memory: "300Mi"
-              cpu: "700m"
+              memory: 300m
+              cpu: 256Mi

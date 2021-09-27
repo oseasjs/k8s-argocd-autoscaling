@@ -9,9 +9,16 @@ export class AppService {
   }
 
   execHighCpu(iteractions: number) {
+    
+    // let value = this.fibonacci(iteractions);
+    // return {
+    //   "value": value
+    // }
+
     let step = 0;
     for (; step < iteractions; step++);
     return {'total': step};
+
   }
 
   async execHighMemory(iteractions: number, totalUsers: number): Promise<any> {
@@ -19,29 +26,27 @@ export class AppService {
     let list = [];
     let size = 0;
 
-    for (let step = 0; step < iteractions; step++) {
-      
-      try {
-        await axios.get('https://randomuser.me/api/?results=' + totalUsers)
-          .then(users => {
-            list.push(users.data);
-            size += users.data.results.length;
-          })
-          .catch(error => {
-            console.log(error.response.data.error);
-            throw error;
-          });
+    await axios.get('https://randomuser.me/api/?results=1')
+      .then(users => {
+        for (let step = 0; step < (iteractions * totalUsers); step++) {
+          list.push(users.data);
+          size += users.data.results.length;
         }
-        catch(e) {
-          list.push(e.message);
-          size ++;
-        }
-
-    }
+      })
+      .catch(e => {
+        console.log(e.response.data.error);
+        throw e;
+      });
 
     return {
       "size": size,
       "data: ": list
     };
+    
+  }
+
+  private fibonacci = (num) => {
+    if (num <= 1) return 1;
+    return this.fibonacci(num - 1) + this.fibonacci(num - 2);
   }
 }
