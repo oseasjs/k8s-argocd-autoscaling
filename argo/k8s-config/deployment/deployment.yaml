@@ -20,7 +20,6 @@ spec:
       containers:
         - name: simple-api-app
           imagePullPolicy: Always
-          # image: oseasjs/poc-autoscaling:1.0
           image: oseasjs/simple-api-app:1.3
           ports:
             - containerPort: 3000
