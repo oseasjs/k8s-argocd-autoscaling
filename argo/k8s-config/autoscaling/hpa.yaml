@@ -1,7 +1,7 @@
 apiVersion: autoscaling/v2beta2
 kind: HorizontalPodAutoscaler
 metadata:
-  name: simple-api-app-hpa
+  name: simple-api-app
   namespace: default
 spec:
   scaleTargetRef:
