@@ -10,7 +10,6 @@ spec:
     name: simple-api-app
   minReplicas: 1
   maxReplicas: 5
-
   behavior:
     scaleUp:
       policies:
