@@ -15,7 +15,7 @@ spec:
       stabilizationWindowSeconds: 30
       policies:
       - type: Pods
-        value: 4
+        value: 1
         periodSeconds: 30
       - type: Percent
         value: 100
