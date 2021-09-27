@@ -40,6 +40,3 @@ spec:
       target:
         type: AverageValue
         averageValue: 200Mi
-status:
-  currentReplicas: 0
-  desiredReplicas: 0
