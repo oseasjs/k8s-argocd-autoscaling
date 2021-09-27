@@ -20,26 +20,27 @@ spec:
       - type: Percent
         value: 100
         periodSeconds: 30
-    # scaleUp:
-    #   stabilizationWindowSeconds: 0
-    #   policies:
-    #   - type: Percent
-    #     value: 50
-    #     periodSeconds: 10
-    #   - type: Pods
-    #     value: 4
-    #     periodSeconds: 15
-    #   selectPolicy: Max
-  metrics:
-  - type: Resource
-    resource:
-      name: cpu
-      target:
-        type: Utilization
-        averageUtilization: 50
-  - type: Resource
-    resource:
-      name: memory
-      target:
-        type: AverageValue
-        averageValue: 200Mi
+      selectPolicy: Min
+    scaleUp:
+      stabilizationWindowSeconds: 0
+      policies:
+      - type: Percent
+        value: 50
+        periodSeconds: 10
+      - type: Pods
+        value: 4
+        periodSeconds: 15
+      selectPolicy: Max
+  # metrics:
+  # - type: Resource
+  #   resource:
+  #     name: cpu
+  #     target:
+  #       type: Utilization
+  #       averageUtilization: 50
+  # - type: Resource
+  #   resource:
+  #     name: memory
+  #     target:
+  #       type: AverageValue
+  #       averageValue: 200Mi
