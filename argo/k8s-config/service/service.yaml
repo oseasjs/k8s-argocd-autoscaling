@@ -9,3 +9,18 @@ spec:
   ports:
     - port: 3000
       targetPort: 3000
+
+---
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: simple-api-app
+  namespace: default
+spec:
+  scaleTagetRef: 
+    apiVersion: apps/v1
+    kind: Deployment
+    name: simple-api-app
+  minReplicas: 1
+  maxReplicas: 5
+  targetCPUUtilizationPercentage: 50
