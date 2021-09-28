@@ -16,12 +16,12 @@ spec:
       policies:
       - type: Pods
         value: 1
-        periodSeconds: 60
+        periodSeconds: 10
     scaleDown:
       policies:
       - type: Percent
-        value: 10
-        periodSeconds: 60
+        value: 100
+        periodSeconds: 10
   metrics:
   - type: Resource
     resource:
