@@ -10,11 +10,12 @@ spec:
     name: simple-api-app
   minReplicas: 1
   maxReplicas: 5
+
   behavior:
     scaleUp:
       policies:
       - type: Pods
-        value: 4
+        value: 1
         periodSeconds: 30
       selectPolicy: Min
     scaleDown:
@@ -58,7 +59,6 @@ spec:
   #       value: 4
   #       periodSeconds: 15
   #     selectPolicy: Max
-
   # metrics:
   # - type: Resource
   #   resource:
