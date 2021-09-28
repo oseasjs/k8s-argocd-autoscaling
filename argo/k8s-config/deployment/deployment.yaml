@@ -24,12 +24,13 @@ spec:
           image: oseasjs/simple-api-app:1.0
           ports:
             - containerPort: 3000
-          limits:
-            cpu: 500m
-            memory: 256Mi
-          requests:
-            cpu: 200m
-            memory: 128Mi
+          resources:
+            limits:
+              cpu: 500m
+              memory: 256Mi
+            requests:
+              cpu: 200m
+              memory: 128Mi
           # resources:
           #   requests:
           #     memory: 128Mi
