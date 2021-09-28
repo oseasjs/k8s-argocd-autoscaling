@@ -1,52 +1,29 @@
-import { Injectable } from '@nestjs/common';
-import axios from "axios";
+import { Injectable, Logger } from '@nestjs/common';
 
 @Injectable()
 export class AppService {
+
+  private logger = new Logger('AppService');
 
   getHello(): string {
     return 'Hello World ! INSTANCE: ' + process.pid;
   }
 
-  execHighCpu(iteractions: number) {
+  highCpu(size: number) {
     
-    // let value = this.fibonacci(iteractions);
-    // return {
-    //   "value": value
-    // }
-
-    let step = 0;
-    for (; step < iteractions; step++);
-    return {'total': step};
+    let total = 0;
+    for (; total < size; total++);
+    this.logger.log(`high-cpu - total: ${total}`);
+    return {'instance': process.pid, 'total': total};
 
   }
 
-  async execHighMemory(iteractions: number, totalUsers: number): Promise<any> {
+  highMemory(size: number) {
 
-    let list = [];
-    let size = 0;
-
-    await axios.get('https://randomuser.me/api/?results=1')
-      .then(users => {
-        for (let step = 0; step < (iteractions * totalUsers); step++) {
-          list.push(users.data);
-          size += users.data.results.length;
-        }
-      })
-      .catch(e => {
-        console.log(e.response.data.error);
-        throw e;
-      });
-
-    return {
-      "size": size,
-      "data: ": list
-    };
+    let arr = new Array(size).fill(new Date());
+    this.logger.log(`high-memory - total: ${arr.length}`);
+    return {'instance': process.pid, 'total': arr.length};
     
   }
 
-  private fibonacci = (num) => {
-    if (num <= 1) return 1;
-    return this.fibonacci(num - 1) + this.fibonacci(num - 2);
-  }
 }

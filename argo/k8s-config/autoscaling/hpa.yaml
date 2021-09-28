@@ -12,22 +12,54 @@ spec:
   maxReplicas: 5
 
   behavior:
-    scaleDown:
-      stabilizationWindowSeconds: 60
-      policies:
-      - type: Percent
-        value: 100
-        periodSeconds: 15
     scaleUp:
-      stabilizationWindowSeconds: 0
+      policies:
+      - type: Pods
+        value: 1
+        periodSeconds: 60
+    scaleDown:
       policies:
       - type: Percent
-        value: 100
-        periodSeconds: 10
-      - type: Pods
-        value: 4
-        periodSeconds: 10
-      selectPolicy: Max
+        value: 10
+        periodSeconds: 60
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: 80
+  - type: Resource
+    resource:
+      name: memory
+      target:
+        type: Utilization
+        averageUtilization: 70
+  
+  # behavior:
+  #   scaleDown:
+  #     # Run scale down on every 60 seconds
+  #     stabilizationWindowSeconds: 60 
+  #     policies:
+  #     - type: Percent
+  #       value: 100
+  #       periodSeconds: 15
+  #     # Reduces two replicas per time on each 10 seconds to the minimum allowed replicas
+  #     - type: Pods
+  #       value: 2 
+  #       periodSeconds: 10
+  #   scaleUp:
+  #     # Run scale up immediatelly 
+  #     stabilizationWindowSeconds: 0
+  #     policies:
+  #     - type: Percent
+  #       value: 100
+  #       periodSeconds: 10
+  #     # Add one replica per time on each 10 seconds if needed
+  #     - type: Pods
+  #       value: 1 
+  #       periodSeconds: 10
+  #     selectPolicy: Max
 
 
 

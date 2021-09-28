@@ -1,4 +1,4 @@
-import { Controller, Get, Param, ParseIntPipe, Query } from '@nestjs/common';
+import { Controller, Get, Param, ParseIntPipe } from '@nestjs/common';
 import { AppService } from './app.service';
 
 @Controller()
@@ -10,15 +10,14 @@ export class AppController {
     return this.appService.getHello();
   }
 
-  @Get('/high-cpu')
-  highCpu(@Query('iteractions') iteractions: number = 1) {
-    return this.appService.execHighCpu(iteractions);
+  @Get('/high-cpu/:size')
+  highCpu(@Param('size', ParseIntPipe) size: number) {
+    return this.appService.highCpu(size);
   }
 
-  @Get('/high-memory')
-  highMemory(@Query('iteractions') iteractions: number = 1,
-    @Query('total-users') totalUsers: number = 100) {
-    return this.appService.execHighMemory(iteractions, totalUsers);
+  @Get('/high-memory/:size')
+  highMemory(@Param('size', ParseIntPipe) size: number) {
+    return this.appService.highMemory(size);
   }
   
 }
