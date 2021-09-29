@@ -4,12 +4,12 @@ metadata:
   name: simple-api-app-dpl
   namespace: default
 spec:
-  replicas: 1
-  strategy:
-    type: RollingUpdate
-    rollingUpdate:
-      maxSurge: 1
-      maxUnavailable: 0
+  # replicas: 1
+  # strategy:
+  #   type: RollingUpdate
+  #   rollingUpdate:
+  #     maxSurge: 1
+  #     maxUnavailable: 0
   selector:
     matchLabels:
       app: simple-api-app
@@ -19,7 +19,7 @@ spec:
         app: simple-api-app
     spec:
       containers:
-        - name: simple-api-app-cont
+        - name: simple-api-app
           imagePullPolicy: Always
           image: oseasjs/simple-api-app:1.0
           ports:
