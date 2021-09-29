@@ -19,7 +19,7 @@ spec:
         app: simple-api-app-temp
     spec:
       containers:
-        - name: simple-api-app-cont
+        - name: simple-api-app-temp
           imagePullPolicy: Always
           image: oseasjs/simple-api-app:1.0
           ports:
