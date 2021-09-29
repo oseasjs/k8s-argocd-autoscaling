@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: simple-api-app
+  name: simple-api-app-dpl
   namespace: default
 spec:
   replicas: 1
@@ -17,11 +17,11 @@ spec:
     metadata:
       labels:
         app: simple-api-app
-      annotations:
-        config.linkerd.io/proxy-cpu-limit: "1"
-        config.linkerd.io/proxy-cpu-request: "0.1"
-        config.linkerd.io/proxy-memory-limit: 500m
-        config.linkerd.io/proxy-memory-request: 128Mi
+      # annotations:
+      #   config.linkerd.io/proxy-cpu-limit: "1"
+      #   config.linkerd.io/proxy-cpu-request: "0.1"
+      #   config.linkerd.io/proxy-memory-limit: 500m
+      #   config.linkerd.io/proxy-memory-request: 128Mi
     spec:
       containers:
         - name: simple-api-app
