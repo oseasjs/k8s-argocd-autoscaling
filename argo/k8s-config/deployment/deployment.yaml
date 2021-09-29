@@ -16,10 +16,10 @@ spec:
   template:
     metadata:
       labels:
-        app: simple-api-app
+        app: simple-api-app-temp
     spec:
       containers:
-        - name: simple-api-app
+        - name: simple-api-app-cont
           imagePullPolicy: Always
           image: oseasjs/simple-api-app:1.0
           ports:
