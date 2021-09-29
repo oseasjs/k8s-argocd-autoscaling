@@ -7,7 +7,7 @@ spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: simple-api-app-temp
+    name: simple-api-app-dpl
   minReplicas: 1
   maxReplicas: 5
   behavior:
