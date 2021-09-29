@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: simple-api-app-dpl
+  name: simple-api-app
   namespace: default
 spec:
   # replicas: 1
