@@ -16,7 +16,7 @@ spec:
   template:
     metadata:
       labels:
-        app: simple-api-app-temp
+        app: simple-api-app
     spec:
       containers:
         - name: simple-api-app
